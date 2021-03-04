@@ -1,0 +1,14 @@
+node {
+    stage 'Build'
+    build job: 'MyApplication Build'
+    stage 'Deploy to test environment'
+    build job: 'MyApplication Deploy', parameters: [
+        [$class: 'StringParameterValue', name: 'DatabaseServer', value: 'DatabaseServer1'],
+        [$class: 'StringParameterValue', name: 'WebServer', value: 'WebServer1']
+    ]
+    stage 'RunIntegrationTests'
+    build job: 'MyApplication Test', parameters: [
+        [$class: 'StringParameterValue', name: 'DatabaseServer', value: 'DatabaseServer1'],
+        [$class: 'StringParameterValue', name: 'WebServer', value: 'WebServer1']
+    ]
+}
