@@ -25,3 +25,4 @@ pipeline {
                 sh 'npm install'
             }
         }
+    }
