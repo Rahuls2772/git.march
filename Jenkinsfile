@@ -1,14 +1,28 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
-            }
-        }
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
+    stage('Git') {
+      steps {
+        git '
+      }
     }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+         sh '<<Build Command>>'
+      }
+    }  
+    
+            
+    stage('Test') {
+      steps {
+        sh 'node test'
+      }
+    }
+  }
 }
