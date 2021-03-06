@@ -7,7 +7,7 @@ pipeline {
         
     stage('Git') {
       steps {
-        git '
+        git 'https://github.com/Rahuls2772/git.march.git'
       }
     }
      
