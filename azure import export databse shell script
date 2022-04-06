@@ -1,0 +1,4 @@
+az sql db export -s "servername" -n databasename -g "rg" -p "password" -u "admin" --storage-key "key" --storage-key-type  StorageAccessKey --storage-uri "storageurl/containername/name_bacpac.bacpac"
+
+az sql db import -s "servername -n databasename -g rg -p "password" -u "admin" --storage-key "key" --storage-key-type  StorageAccessKey --storage-uri "copy blob url here"
+
